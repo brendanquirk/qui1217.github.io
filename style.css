@@ -1,9 +1,19 @@
 h1 {
   text-align: center;
+  margin-bottom: 70px;
+  /* color: white; */
 }
 
 body {
-  background-image: url('https://www.screenpeepers.com/web/wallpapers/portal/1280x720.jpg');
+  /* background-image: url('https://www.screenpeepers.com/web/wallpapers/portal/1280x720.jpg'); */
   background-size: cover;
-  
+}
+
+.content {
+  text-align: center;
+}
+
+li {
+  list-style: none;
+  /* color: white; */
 }
