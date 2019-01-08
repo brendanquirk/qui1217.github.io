@@ -1,3 +1,9 @@
 h1 {
   text-align: center;
 }
+
+body {
+  background-image: url('https://www.screenpeepers.com/web/wallpapers/portal/1280x720.jpg');
+  background-size: cover;
+  
+}
