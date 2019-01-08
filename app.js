@@ -1,5 +1,15 @@
 $(() => {
 
+const checkScroll = (elem) => {
+  let docTop = $(window).scrollTop();
+  let docBot = docTop + $(window).height();
+
+  let elemTop = $(elem).offset().top;
+  let elemBot = elemTop + $(elem).height();
+
+  return((elemBot <= docBot) && (elemTop >= docTop));
+}
+
   $.ajax({
     url: 'https://rickandmortyapi.com/api/character/'
   }).then(
@@ -19,11 +29,14 @@ $(() => {
         const $status = $('<li>').text('Status: ' + data.results[i].status);
         $list.append($status);
       }
+      $('body').append('<div>').addClass('last')
     },
     () => {
       console.log('Error');
     }
-  )
-
+  );
+  $('.last').on('scroll', () => {
+    console.log('scroll');
+  })
 
 })
