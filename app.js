@@ -1,5 +1,10 @@
 $(() => {
 
+let scrollTop = $(document).scrollTop();
+let windowHeight = $(window).height();
+let bodyHeight = $(document).height() - windowHeight;
+let scrollPercentage = (scrollTop / bodyHeight);
+
   for (let i = 0; i <= 25; i++) {
     $.ajax({
       url: 'https://rickandmortyapi.com/api/character/?page=' + i
