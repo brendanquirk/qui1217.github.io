@@ -1,16 +1,31 @@
 $(() => {
 
-let scrollTop = $(document).scrollTop();
-let windowHeight = $(window).height();
-let bodyHeight = $(document).height() - windowHeight;
-let scrollPercentage = (scrollTop / bodyHeight);
+  let apiData;
+  let getPage = 2;
 
-  for (let i = 0; i <= 25; i++) {
+  $(window).on('scroll', () => {
+    let scrollTop = $(document).scrollTop();
+    let windowHeight = $(window).height();
+    let bodyHeight = $(document).height() - windowHeight;
+    let scrollPercentage = (scrollTop / bodyHeight);
+
+    if (scrollPercentage > 0.9) {
+      if (getPage <= 25) {
+        getData(getPage);
+        getPage++;
+      }
+
+    }
+  })
+
+
+  const getData = (pageNum) => {
     $.ajax({
-      url: 'https://rickandmortyapi.com/api/character/?page=' + i
+      url: 'https://rickandmortyapi.com/api/character/?page=' + pageNum
     }).then(
       (data) => {
-        console.log(data);
+        apiData = console.log(data);
+        apiData = data.results;
         for (let i = 0; i < data.results.length; i++) {
           const $image = $('<img>').attr('src', data.results[i].image);
           $('.content').append($image);
@@ -31,4 +46,8 @@ let scrollPercentage = (scrollTop / bodyHeight);
       }
     );
   }
+
+  getData(1);
+
+
 })
