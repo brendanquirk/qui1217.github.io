@@ -32,7 +32,8 @@ img {
 }
 
 /*============== Desktop ===============*/
-/* @media (min-width: 600px) {
+
+@media (min-width: 600px) {
   .scroll_container {
     display: flex;
   }
@@ -41,4 +42,4 @@ img {
     text-align: center;
     display: flex;
   }
-} */
+}
