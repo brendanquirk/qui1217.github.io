@@ -24,20 +24,20 @@ $(() => {
       url: 'https://rickandmortyapi.com/api/character/?page=' + pageNum
     }).then(
       (data) => {
-        apiData = console.log(data);
+        // apiData = console.log(data);
         apiData = data.results;
-        for (let i = 0; i < data.results.length; i++) {
-          const $image = $('<img>').attr('src', data.results[i].image);
+        for (let i = 0; i < apiData.length; i++) {
+          const $image = $('<img>').attr('src', apiData[i].image);
           $('.content').append($image);
           const $list = $('<ul>')
           $('.content').append($list);
-          const $name = $('<li>').text('Name: ' + data.results[i].name);
+          const $name = $('<li>').text('Name: ' + apiData[i].name);
           $list.append($name);
-          const $location = $('<li>').text('Location: ' + data.results[i].location.name);
+          const $location = $('<li>').text('Location: ' + apiData[i].location.name);
           $list.append($location);
-          const $origin = $('<li>').text('Origin: ' + data.results[i].origin.name);
+          const $origin = $('<li>').text('Origin: ' + apiData[i].origin.name);
           $list.append($origin);
-          const $status = $('<li>').text('Status: ' + data.results[i].status);
+          const $status = $('<li>').text('Status: ' + apiData[i].status);
           $list.append($status);
         }
       },
