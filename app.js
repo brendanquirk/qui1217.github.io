@@ -27,10 +27,12 @@ $(() => {
         // apiData = console.log(data);
         apiData = data.results;
         for (let i = 0; i < apiData.length; i++) {
+          const $charDiv = $('<div>').addClass('character');
+          $('.content').append($charDiv);
           const $image = $('<img>').attr('src', apiData[i].image);
-          $('.content').append($image);
+          $charDiv.append($image);
           const $list = $('<ul>')
-          $('.content').append($list);
+          $charDiv.append($list);
           const $name = $('<li>').text('Name: ' + apiData[i].name);
           $list.append($name);
           const $location = $('<li>').text('Location: ' + apiData[i].location.name);

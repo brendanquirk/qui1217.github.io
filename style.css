@@ -1,4 +1,7 @@
 /*================== Mobile ==================  */
+body {
+  background-image: url('https://i.redd.it/0z3140ximmd01.jpg');
+}
 
 h1 {
   text-align: center;
@@ -33,24 +36,29 @@ img {
 }
 
 /*============== Desktop ===============*/
-
 @media (min-width: 600px) {
   .scroll_container {
-    display: flex;
+    /* display: flex; */
   }
 
   .content {
     text-align: center;
     display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
-img {
-  height: 300px;
-  width: auto;
-}
+  .character {
+    margin-right: 10px;
+  }
 
-li {
-  font-size: 20px;
-}
+  img {
+    height: 300px;
+    width: auto;
+  }
 
+  li {
+    font-size: 20px;
+  }
 }
