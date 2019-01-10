@@ -24,7 +24,7 @@ $(() => {
       url: 'https://rickandmortyapi.com/api/character/?page=' + pageNum
     }).then(
       (data) => {
-        // apiData = console.log(data);
+        console.log(data);
         apiData = data.results;
         for (let i = 0; i < apiData.length; i++) {
           const $charDiv = $('<div>').addClass('character');
@@ -42,6 +42,15 @@ $(() => {
           const $status = $('<li>').text('Status: ' + apiData[i].status);
           $list.append($status);
         }
+        $('.character').on('click', () => {
+          const $modal = $('<div>').css('z-index', 1).text('my modal').addClass('modal');
+          $('body').append($modal);
+          const $closeBtn = $('<button>').text('Close');
+          $modal.append($closeBtn);
+          $closeBtn.on('click', () => {
+            $modal.remove();
+          })
+        })
       },
       () => {
         console.log('Error');
@@ -50,6 +59,5 @@ $(() => {
   }
 
   getData(1);
-
 
 })
