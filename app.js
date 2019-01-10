@@ -43,13 +43,24 @@ $(() => {
           $list.append($status);
         }
         $('.character').on('click', () => {
-          const $modal = $('<div>').css('z-index', 1).text('my modal').addClass('modal');
+          const $modal = $('<div>').css('z-index', 1).text('Episdoe Information').addClass('modal');
           $('body').append($modal);
           const $closeBtn = $('<button>').text('Close');
           $modal.append($closeBtn);
           $closeBtn.on('click', () => {
             $modal.remove();
           })
+          for (let i = 2; i < apiData.length; i++) {
+            $.ajax({
+              url:'https://rickandmortyapi.com/api/character/?page=' + pageNum,
+              async: false
+            }).then(
+              (data) => {
+                const $episodes = $('<li>').text(data.results[i].episode);
+                $modal.append($episodes);
+              }
+            )
+          }
         })
       },
       () => {
