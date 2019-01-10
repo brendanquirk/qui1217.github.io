@@ -1,12 +1,15 @@
 /*================== Mobile ==================  */
 body {
   background-image: url('https://i.redd.it/0z3140ximmd01.jpg');
+  background-size: cover;
 }
 
 h1 {
   text-align: center;
   margin-bottom: 70px;
   font-family: 'Shadows Into Light', cursive;
+  font-style: italic;
+  text-decoration: underline;
   font-size: 50px;
   /* color: white; */
 }
