@@ -1,7 +1,10 @@
+/*================== Mobile ==================  */
+
 h1 {
   text-align: center;
   margin-bottom: 70px;
   font-family: 'Shadows Into Light', cursive;
+  font-size: 50px;
   /* color: white; */
 }
 
@@ -15,11 +18,21 @@ h1 {
 
 li {
   list-style: none;
+  font-family: 'Patrick Hand SC', cursive;
+  font-size: 20px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid black;
   /* color: white; */
 }
 
+img {
+  height: 500px;
+  width: auto;
+  margin-top: 50px;
+}
+
 /*============== Desktop ===============*/
-@media (min-width: 600px) {
+/* @media (min-width: 600px) {
   .scroll_container {
     display: flex;
   }
@@ -28,4 +41,4 @@ li {
     text-align: center;
     display: flex;
   }
-}
+} */
