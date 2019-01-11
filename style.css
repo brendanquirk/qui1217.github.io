@@ -56,8 +56,12 @@ img {
   padding: 10px;
   opacity: .9;
   overflow: auto;
+  font-family: 'Patrick Hand SC', cursive;
 }
 
+.close {
+  font-family: 'Patrick Hand SC', cursive;
+}
 .epInfo {
 
 }

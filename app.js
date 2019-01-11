@@ -46,7 +46,7 @@ $(() => {
           event.stopPropagation();
           const $modal = $('<div>').css('z-index', 1).text('Episdoe Information').addClass('modal');
           $('body').append($modal);
-          const $closeBtn = $('<button>').text('Close');
+          const $closeBtn = $('<button>').text('Close').addClass('close');
           $modal.append($closeBtn);
           $closeBtn.on('click', (event) => {
             event.stopPropagation();
