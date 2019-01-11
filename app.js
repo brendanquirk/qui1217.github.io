@@ -27,7 +27,7 @@ $(() => {
         console.log(data);
         apiData = data.results;
         for (let i = 0; i < apiData.length; i++) {
-          const $charDiv = $('<div>').addClass('character');
+          const $charDiv = $('<div>').addClass('character').attr('id', apiData[i].id);
           $('.content').append($charDiv);
           const $image = $('<img>').attr('src', apiData[i].image);
           $charDiv.append($image);
@@ -42,7 +42,9 @@ $(() => {
           const $status = $('<li>').text('Status: ' + apiData[i].status);
           $list.append($status);
         }
-        $('.character').on('click', () => {
+        $('.character').on('click', (event) => {
+          event.stopPropagation();
+          console.log($(event.currentTarget).attr('id'));
           const $modal = $('<div>').css('z-index', 1).text('Episdoe Information').addClass('modal');
           $('body').append($modal);
           const $closeBtn = $('<button>').text('Close');
@@ -50,17 +52,18 @@ $(() => {
           $closeBtn.on('click', () => {
             $modal.remove();
           })
-          for (let i = 2; i < apiData.length; i++) {
-            $.ajax({
-              url:'https://rickandmortyapi.com/api/character/?page=' + pageNum,
-              async: false
-            }).then(
-              (data) => {
-                const $episodes = $('<li>').text(data.results[i].episode);
+          $.ajax({
+            url: 'https://rickandmortyapi.com/api/character/' + $(event.currentTarget).attr('id')
+            // async: false
+          }).then(
+            (data) => {
+              for (let i = 0; i < data.episode.length; i++) {
+                console.log(data);
+                const $episodes = $('<li>').text(data.episode[i]).addClass('epInfo');
                 $modal.append($episodes);
               }
-            )
-          }
+            }
+          )
         })
       },
       () => {
