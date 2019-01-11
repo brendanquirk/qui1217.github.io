@@ -21,10 +21,10 @@ $(() => {
 
   const getData = (pageNum) => {
     $.ajax({
-      url: 'https://rickandmortyapi.com/api/character/?page=' + pageNum
+      url: 'https://rickandmortyapi.com/api/character/?page=' + pageNum,
     }).then(
       (data) => {
-        console.log(data);
+        // console.log(data);
         apiData = data.results;
         for (let i = 0; i < apiData.length; i++) {
           const $charDiv = $('<div>').addClass('character').attr('id', apiData[i].id);
@@ -44,21 +44,19 @@ $(() => {
         }
         $('.character').on('click', (event) => {
           event.stopPropagation();
-          console.log($(event.currentTarget).attr('id'));
           const $modal = $('<div>').css('z-index', 1).text('Episdoe Information').addClass('modal');
           $('body').append($modal);
           const $closeBtn = $('<button>').text('Close');
           $modal.append($closeBtn);
-          $closeBtn.on('click', () => {
+          $closeBtn.on('click', (event) => {
+            event.stopPropagation();
             $modal.remove();
           })
           $.ajax({
-            url: 'https://rickandmortyapi.com/api/character/' + $(event.currentTarget).attr('id')
-            // async: false
+            url: 'https://rickandmortyapi.com/api/character/' + $(event.currentTarget).attr('id'),
           }).then(
             (data) => {
               for (let i = 0; i < data.episode.length; i++) {
-                console.log(data);
                 const $episodes = $('<li>').text(data.episode[i]).addClass('epInfo');
                 $modal.append($episodes);
               }
