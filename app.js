@@ -24,7 +24,7 @@ $(() => {
       url: 'https://rickandmortyapi.com/api/character/?page=' + pageNum,
     }).then(
       (data) => {
-        // console.log(data);
+        console.log(data);
         apiData = data.results;
         for (let i = 0; i < apiData.length; i++) {
           const $charDiv = $('<div>').addClass('character').attr('id', apiData[i].id);
