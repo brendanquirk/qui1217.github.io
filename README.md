@@ -1,1 +1,1 @@
-# qui1217.github.io
+# Rick and Morty Character Portal
