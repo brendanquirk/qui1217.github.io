@@ -62,8 +62,9 @@ img {
 .close {
   font-family: 'Patrick Hand SC', cursive;
 }
-.epInfo {
 
+.character {
+  display: block;
 }
 
 /*============== Desktop ===============*/
