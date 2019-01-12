@@ -65,6 +65,7 @@ img {
 
 .character {
   display: block;
+  margin: 0px 100px;
 }
 
 /*============== Desktop ===============*/
