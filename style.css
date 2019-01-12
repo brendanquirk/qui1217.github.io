@@ -20,8 +20,6 @@ h1 {
 
 .content {
   text-align: center;
-  display: flex;
-  flex-direction: column;
 }
 
 li {
@@ -66,7 +64,7 @@ img {
 }
 
 .character {
-  margin: 0px 100px;
+  display: block;
 }
 
 /*============== Desktop ===============*/
