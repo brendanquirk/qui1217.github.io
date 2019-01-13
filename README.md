@@ -14,3 +14,4 @@
 -HTML
 -CSS
 -Javascript
+-//Used https://benjaminhorn.io/code/how-to-implement-infinite-scroll/ to figure out how to add content on scroll
