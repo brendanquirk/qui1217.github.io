@@ -3,7 +3,6 @@ $(() => {
   let apiData;
   let getPage = 2;
 
-//Used https://benjaminhorn.io/code/how-to-implement-infinite-scroll/ to figure out how to add content on scroll
   $(window).on('scroll', () => {
     let scrollTop = $(document).scrollTop();
     let windowHeight = $(window).height();
