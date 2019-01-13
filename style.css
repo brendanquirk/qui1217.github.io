@@ -64,7 +64,8 @@ img {
 }
 
 .character {
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
 
 /*============== Desktop ===============*/
@@ -82,7 +83,7 @@ img {
   }
 
   .character {
-    margin-right: 10px;
+    margin: 20px;
   }
 
   img {

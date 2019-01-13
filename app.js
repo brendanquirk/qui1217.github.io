@@ -43,6 +43,7 @@ $(() => {
           $list.append($status);
         }
         $('.character').on('click', (event) => {
+          event.preventDefault();
           event.stopPropagation();
           const $modal = $('<div>').css('z-index', 1).text('Episdoe Information').addClass('modal');
           $('body').append($modal);
