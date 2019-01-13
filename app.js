@@ -19,6 +19,29 @@ $(() => {
   })
 
 
+  const clickInfo = () => {
+    $('.character').on('click', (event) => {
+      event.stopPropagation();
+      const $modal = $('<div>').css('z-index', 1).text('Episdoe Information').addClass('modal');
+      $('body').append($modal);
+      const $closeBtn = $('<button>').text('Close').addClass('close');
+      $modal.append($closeBtn);
+      $closeBtn.on('click', (event) => {
+        $modal.remove();
+      })
+      $.ajax({
+        url: 'https://rickandmortyapi.com/api/character/' + $(event.currentTarget).attr('id'),
+      }).then(
+        (data) => {
+          for (let i = 0; i < data.episode.length; i++) {
+            const $episodes = $('<li>').text(data.episode[i]).addClass('epInfo');
+            $modal.append($episodes);
+          }
+        }
+      )
+    })
+  }
+
   const getData = (pageNum) => {
     $.ajax({
       url: 'https://rickandmortyapi.com/api/character/?page=' + pageNum,
@@ -42,28 +65,7 @@ $(() => {
           const $status = $('<li>').text('Status: ' + apiData[i].status);
           $list.append($status);
         }
-        $('.character').on('click', (event) => {
-          event.preventDefault();
-          event.stopPropagation();
-          const $modal = $('<div>').css('z-index', 1).text('Episdoe Information').addClass('modal');
-          $('body').append($modal);
-          const $closeBtn = $('<button>').text('Close').addClass('close');
-          $modal.append($closeBtn);
-          $closeBtn.on('click', (event) => {
-            event.stopPropagation();
-            $modal.remove();
-          })
-          $.ajax({
-            url: 'https://rickandmortyapi.com/api/character/' + $(event.currentTarget).attr('id'),
-          }).then(
-            (data) => {
-              for (let i = 0; i < data.episode.length; i++) {
-                const $episodes = $('<li>').text(data.episode[i]).addClass('epInfo');
-                $modal.append($episodes);
-              }
-            }
-          )
-        })
+        clickInfo();
       },
       () => {
         console.log('Error');
