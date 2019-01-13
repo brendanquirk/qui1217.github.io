@@ -62,7 +62,8 @@ img {
 }
 
 .character {
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
 
 /*============== Desktop ===============*/
