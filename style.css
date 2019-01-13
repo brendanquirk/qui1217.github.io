@@ -11,6 +11,7 @@ h1 {
   font-style: italic;
   text-decoration: underline;
   font-size: 50px;
+  margin-left: 200px;
 }
 
 
@@ -19,6 +20,8 @@ h1 {
   margin-left: 100px;
   display: flex;
   flex-direction: column;
+  padding-left: 100px;
+  padding-right: 100px;
 }
 
 li {
@@ -68,6 +71,11 @@ img {
 
 /*============== Desktop ===============*/
 @media (min-width: 750px) {
+
+  h1 {
+    margin-left: 0px;
+  }
+
   .scroll_container {
     /* display: flex; */
   }
@@ -80,6 +88,8 @@ img {
     flex-wrap: wrap;
     justify-content: space-between;
     margin-left: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 
   .character {
