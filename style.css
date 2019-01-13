@@ -11,16 +11,14 @@ h1 {
   font-style: italic;
   text-decoration: underline;
   font-size: 50px;
-  /* color: white; */
 }
 
-.scroll_container {
-  display: block;
-}
 
 .content {
   text-align: center;
   margin-left: 100px;
+  display: flex;
+  flex-direction: column;
 }
 
 li {
@@ -29,7 +27,6 @@ li {
   font-size: 20px;
   margin-bottom: 10px;
   border-bottom: 1px solid black;
-  /* color: white; */
 }
 
 img {
@@ -65,20 +62,16 @@ img {
 }
 
 .character {
-  /* display: flex;
-  flex-direction: column; */
-  display: block;
+ display: block;
 }
 
 /*============== Desktop ===============*/
 @media (min-width: 750px) {
-  .scroll_container {
-    /* display: flex; */
-  }
 
   .content {
     text-align: center;
     display: flex;
+    flex-direction: row;
     width: 100%;
     flex-wrap: wrap;
     justify-content: space-between;
